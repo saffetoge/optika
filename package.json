@@ -1,0 +1,20 @@
+{
+  "$schema": "https://www.schemastore.org/package.json",
+  "name": "optika",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "test": "node --test tests/Js/Mimari/*.test.js tests/Js/Okuma/*.test.js",
+    "kontrol": "npm run test && npm run build && npm audit"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^6.5.438"
+  },
+  "devDependencies": {
+    "laravel-vite-plugin": "^3.1",
+    "sass": "^1.108.2",
+    "vite": "^8.3.8"
+  }
+}

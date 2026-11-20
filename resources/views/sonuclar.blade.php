@@ -1,0 +1,19 @@
+@extends('arayuz')
+
+@section('icerik')
+<section id="ekran-sonuclar" class="ekran">
+  <div class="sayfa-baslik"><div><div class="ust-etiket">TESTLERİNİZE AİT SONUÇLAR</div><h1>Okuma sonuçları</h1><p>Tamamlanan test okumaları burada listelenir.</p></div><a class="dugme ikincil" href="/okuma"><span data-simge="arti"></span>PDF ekle</a></div>
+  <div class="bilgi-seridi"><span data-simge="bilgi"></span><p data-okuma-kosulu>Okuyucu hazırlanıyor.</p></div>
+  <section class="kart bos-durum" id="sonuc-yok"><span data-simge="grafik"></span><h2>Henüz okunmuş test yok</h2><p>PDF sayfasının sayılması, testin optik olarak okunduğu anlamına gelmez.<br>İşaret okuma tamamlandığında sonuçlar bu sayfada görünür.</p><a class="dugme birincil" href="/okuma">PDF okumaya git<span data-simge="ok"></span></a></section>
+  <div id="sonuc-var" hidden>
+    <div class="istatistikler dortlu" id="okuma-ozeti"></div>
+    <section class="kart indirme-karti"><div><div class="ust-etiket">VERİ DOSYALARI</div><h2 id="sonuc-basligi">Veri dosyaları</h2><p id="sonuc-aciklamasi"></p></div><div class="indirme-dugmeleri"><button class="dugme birincil" id="tum-veri-indir"><span data-simge="indir"></span>Tüm veri<span class="indirme-adi" id="tum-veri-adi"></span></button><button class="dugme ikincil" id="tam-veri-indir"><span data-simge="indir"></span>Üç ölçümü tam olanlar<span class="indirme-adi" id="tam-veri-adi"></span></button></div></section>
+    <section class="kart sonuc-bolumu" id="kontrol-karti" hidden><div class="kart-baslik"><h2>Kontrol edilmesi gerekenler</h2><span class="etiket turuncu" id="kontrol-sayisi"></span></div><ul class="kontrol-maddeleri" id="kontrol-listesi"></ul></section>
+    <section class="kart sonuc-bolumu"><div class="kart-baslik"><h2>Öğrenciler</h2><span class="etiket mor">Satırlar ön test kâğıtlarıdır</span></div><div class="tablo-filtreleri" role="group" aria-label="Öğrenci süzgeci"><button class="filtre etkin" data-ogrenci-filtresi="tumu">Tümü</button><button class="filtre" data-ogrenci-filtresi="tam">Üç ölçümü tam</button><button class="filtre" data-ogrenci-filtresi="eksik">Eksik ya da kod çelişkili</button></div><div class="tablo-kapsayici"><table class="sikisik-tablo"><thead><tr><th>ÖĞRENCİ</th><th>KİŞİSEL KOD</th><th>SINIF</th><th>CİNSİYET</th><th>ÖN TEST</th><th>SON TEST</th><th>KALICILIK</th><th>DURUM</th></tr></thead><tbody id="ogrenci-satirlari"></tbody></table></div><div class="bos-durum" id="ogrenci-bos" hidden><h3>Bu süzgeçte öğrenci yok</h3><p>Başka bir süzgeç seçin.</p></div></section>
+    <section class="kart sonuc-bolumu" id="eslesmeyen-karti" hidden><div class="kart-baslik"><h2>Hiçbir öğrenciye bağlanmayan kâğıtlar</h2><span class="etiket turuncu" id="eslesmeyen-sayisi"></span></div><p class="kart-aciklama">Bu kâğıtların kişisel kodu hiçbir ön test kâğıdıyla eşleşmedi; CSV dosyalarına girmez.</p><div class="tablo-kapsayici"><table><thead><tr><th>ÖLÇÜM</th><th>FORM NO</th><th>KİŞİSEL KOD</th><th>İŞARETLİ MADDE</th><th>PDF VE SAYFA</th></tr></thead><tbody id="eslesmeyen-satirlari"></tbody></table></div></section>
+    <section class="kart sonuc-bolumu" id="ayrilan-karti" hidden><div class="kart-baslik"><h2>Ayrılan evrak</h2><span class="etiket turuncu" id="ayrilan-sayisi"></span></div><p class="kart-aciklama">Cevap kâğıdı olarak tanınmayan sayfalar okumaya katılmadı.</p><div class="ayrilan-izgara" id="ayrilan-listesi"></div></section>
+    <section class="kart sonuc-bolumu"><div class="kart-baslik"><h2>Okunan dosyalar</h2></div><div class="tablo-kapsayici"><table><thead><tr><th>PDF DOSYASI</th><th>SAYFA</th><th>ÖLÇÜM</th><th>AYRILAN SAYFA</th></tr></thead><tbody id="dosya-ozeti"></tbody></table></div></section>
+    <div class="sayfa-eylemleri"><span>Sonuçlar yalnız bu tarayıcıda saklanır; yeni bir okuma öncekinin yerine geçer.</span><button class="metin-dugme" id="sonuclari-temizle">Sonuçları temizle</button></div>
+  </div>
+</section>
+@endsection

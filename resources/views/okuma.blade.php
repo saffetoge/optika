@@ -1,0 +1,14 @@
+@extends('arayuz')
+
+@section('icerik')
+      <section id="ekran-okuma" class="ekran">
+        <div class="sayfa-baslik"><div><div class="ust-etiket">FORMDAN VERİYE</div><h1>PDF okuma</h1><p>Ön test, son test ve kalıcılık PDF’lerini ekleyin. Kâğıtlar okunur, öğrenciler kişisel kodla eşleştirilir.</p></div></div>
+        <div class="bilgi-seridi"><span data-simge="bilgi"></span><p id="okuma-kosulu" data-okuma-kosulu>Okuyucu hazırlanıyor.</p></div>
+        <section class="kart toplu-yukleme"><label class="birakma-alani" id="okuma-birak" for="okuma-dosyalar"><span class="yukleme-simge" data-simge="yukle"></span><strong>Test PDF’lerini buraya bırakın</strong><span>veya <b>birden fazla dosya seçin</b></span><small>Dosyalar sunucuya gönderilmez · Dosya başına en fazla 50 MB</small><input class="gizli-dosya" id="okuma-dosyalar" type="file" accept="application/pdf,.pdf" multiple></label></section>
+        <div class="istatistikler"><div class="kart"><span>Eklenen PDF</span><strong id="pdf-sayisi">0</strong></div><div class="kart"><span>Toplam PDF sayfası</span><strong id="toplam-sayfa">0</strong></div><div class="kart"><span>Optik okuma</span><strong class="metin-deger" id="okuma-durumu">Henüz yapılmadı</strong></div></div>
+        <section class="kart"><div class="kart-baslik"><h2>Okuma kuyruğu</h2><button class="metin-dugme" id="kuyruk-temizle">Listeyi temizle</button></div><div class="tablo-kapsayici"><table><thead><tr><th>PDF DOSYASI</th><th>SAYFA</th><th>DURUM</th><th><span class="ekran-okuyucu">İşlem</span></th></tr></thead><tbody id="dosya-satirlari"></tbody></table></div><div class="bos-durum" id="kuyruk-bos"><span data-simge="belge"></span><h3>İlk dosyanızı ekleyin</h3><p>PDF dosyalarınız ve sayfa sayıları burada görünecek.</p></div></section>
+        <section class="kart okuma-ilerleme" id="okuma-ilerleme" hidden><div class="ilerleme-satiri"><span id="okuma-ilerleme-metni" role="status" aria-live="polite">Okuma başlıyor…</span><button class="metin-dugme" id="okumayi-durdur">Okumayı durdur</button></div><progress id="okuma-cubugu" value="0" max="1" aria-label="Okuma ilerlemesi"></progress></section>
+        <section class="kart okuma-ayarlari"><label class="alan" for="okul-kodu">Okul kodu<input class="metin-girdisi" id="okul-kodu" type="text" maxlength="30" autocomplete="off" spellcheck="false" placeholder="ÖRNEK: ACI"><small>CSV’deki okul sütununa ve dosya adına yazılır. Dosya adından önerilir, değiştirebilirsiniz.</small></label><button class="dugme birincil" id="okumayi-baslat" disabled aria-describedby="okuma-kosulu">Okumayı başlat<span data-simge="ok"></span></button></section>
+        <p class="sayfa-notu">Her cevap kâğıdı iki sayfadır; bir PDF sayfası, bir katılımcı anlamına gelmeyebilir. Cevap kâğıdı olmayan sayfalar ayrılır ve sonuç sayfasında listelenir.</p>
+      </section>
+@endsection
